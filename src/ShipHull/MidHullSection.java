@@ -2,13 +2,20 @@ package ShipHull;
 
 public class MidHullSection extends HullSection {
 
+    private final static int COST_TO_BUILD = 2100;
+    private final static int LENGTH = 700;
+    private final static int HEIGHT = 190;
+    private final static int WIDTH = 700;
+    private final static int WEIGHT = 1100;
+    private int totalCost;
     public MidHullSection() {
+        IDNumber++;
         sectionType = "Mid";
-        costToBuild = 2100;
-        length = 700;
-        height = 190;
-        width = 700;
-        weight = 1100;
         assembled = false;
+
+    }
+
+    public int getCostToBuild(){
+        return COST_TO_BUILD;
     }
 }
