@@ -9,13 +9,14 @@ public class Hull {
     private SuperStructure bridge;
     private int totalHullCost;
 
-    public Hull() {
+    public Hull(FwdHullSection forwardSection, MidHullSection midSection, AftHullSection aftSection, SuperStructure bridge) {
         this.IDNumber = IDNumber;
-        this.forwardSection = new FwdHullSection();
-        this.midSection = new MidHullSection();
-        this.aftSection = new AftHullSection();
-        this.bridge = new SuperStructure();
-        this.totalHullCost = getTotalHullCost();
+        this.forwardSection = forwardSection;
+        this.midSection = midSection;
+        this.aftSection = aftSection;
+        this.bridge = bridge;
+        this.totalHullCost = forwardSection.getCostToBuild() + midSection.getCostToBuild()
+                                + aftSection.getCostToBuild();
     }
 
     public void displayHullSpecs() {
@@ -23,6 +24,6 @@ public class Hull {
 
     //returns the total cost of building all the parts of the hull.
     public int getTotalHullCost(){
-        return forwardSection.getCostToBuild() + midSection.getCostToBuild() + aftSection.getCostToBuild();
+        return totalHullCost;
     }
 }

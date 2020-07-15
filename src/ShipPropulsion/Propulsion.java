@@ -7,6 +7,13 @@ public class Propulsion {
     private IonEngine starBoardEngine;
     private HyperDrive LSEngine;
 
+    public Propulsion(IonEngine portEngine, IonEngine starBoardEngine, HyperDrive LSEngine) {
+        this.IDNumber = IDNumber;
+        this.portEngine = portEngine;
+        this.starBoardEngine = starBoardEngine;
+        this.LSEngine = LSEngine;
+    }
+
     public void displayPropulsion(){
 
         System.out.println("Propulsion ID: " + IDNumber + "\nPort Engine"
