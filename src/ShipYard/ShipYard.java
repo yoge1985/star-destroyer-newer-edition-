@@ -18,21 +18,19 @@ public class ShipYard {
 
     public static void main(String[] args) {
 
-//        Hull hull = new Hull();
-//        int amount = hull.getTotalHullCost();
-//        System.out.println("AMOUNT = " + amount);
+        ArrayList<Hull> hulls = buildHull(1);
     }
-    //builds
 
+    //
     public static ArrayList<StarDestroyer> buildStarDestroyers(int imperial1Count, int imperial2Count, TreeMap registry){
 
         ArrayList<StarDestroyer> starDestroyers = new ArrayList<>();
         for (int i = 0; i < imperial1Count; i++){
-            ImperialClassI type1 = new ImperialClassI();
+            ImperialClassI type1 = new ImperialClassI("bobby");
             starDestroyers.add(type1);
         }
         for (int i = 0; i < imperial2Count; i++){
-            ImperialClassII type2 = new ImperialClassII();
+            ImperialClassII type2 = new ImperialClassII("tommy");
             starDestroyers.add(type2);
         }
         return starDestroyers;

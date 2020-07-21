@@ -2,14 +2,13 @@ package ShipArmament;
 
 public abstract class Cannon {
 
-    private String IDNumber;
+    protected String IDNumber;
     private String cannonType;
     private int maxRange;
     private int costToBuild;
     private boolean installed;
 
-    public Cannon(String IDNumber, String cannonType, int maxRange, int costToBuild, boolean installed) {
-        this.IDNumber = IDNumber;
+    public Cannon(String cannonType, int maxRange, int costToBuild, boolean installed) {
         this.cannonType = cannonType;
         this.maxRange = maxRange;
         this.costToBuild = costToBuild;
@@ -22,5 +21,9 @@ public abstract class Cannon {
 
     public void fireCannon(String tgt){
 
+    }
+
+    public int getCost(){
+        return costToBuild;
     }
 }

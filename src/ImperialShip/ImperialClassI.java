@@ -1,16 +1,24 @@
 package ImperialShip;
 
+import ShipArmament.Armament;
+import ShipHull.Hull;
+import ShipPropulsion.Propulsion;
+
 public class ImperialClassI extends StarDestroyer {
+
+    private Armament armament;
+    private Hull hull;
+    private Propulsion propulsion;
 
     private int moveRate = 1;
 
 
-    public ImperialClassI(){
+    public ImperialClassI(String shipName){
 
         shpName = "ImperialClassI";
         shpCrew = 7200;
-        shpCost = 0; //125% and 175% of the cost of combined total of Hull,Propulsion and Armament
-
+        shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.25;
+        shpName = shipName;
     }
 
     //prints to console - moving forward. increments x by 1 (move_rate).

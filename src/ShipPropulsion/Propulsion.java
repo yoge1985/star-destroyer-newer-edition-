@@ -6,12 +6,14 @@ public class Propulsion {
     private IonEngine portEngine;
     private IonEngine starBoardEngine;
     private HyperDrive LSEngine;
+    private int totalCost;
 
     public Propulsion(IonEngine portEngine, IonEngine starBoardEngine, HyperDrive LSEngine) {
         this.IDNumber = IDNumber;
         this.portEngine = portEngine;
         this.starBoardEngine = starBoardEngine;
         this.LSEngine = LSEngine;
+        this.totalCost = LSEngine.getCostToBuild() + starBoardEngine.getCostToBuild();
     }
 
     public void displayPropulsion(){
@@ -25,5 +27,9 @@ public class Propulsion {
                 + "\nHyperdrive\nEngine ID: " + LSEngine.IDNumber
                 + "\nEngine: Hyperdrive\n Fuel capacity: " + LSEngine.fuelCapacity
                 + "\nMaximum thrust: " + LSEngine.maxThrust);
+    }
+
+    public int getTotalCost(){
+        return this.totalCost;
     }
 }

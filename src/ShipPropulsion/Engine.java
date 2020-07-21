@@ -14,4 +14,8 @@ public abstract class Engine {
     public void displayEngineInfo(){
 
     }
+
+    public int getCostToBuild(){
+        return costToBuild;
+    }
 }

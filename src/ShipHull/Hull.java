@@ -2,6 +2,7 @@ package ShipHull;
 
 public class Hull {
 
+    private int idValue = 0;
     private String IDNumber;
     private FwdHullSection forwardSection;
     private MidHullSection midSection;
@@ -10,7 +11,8 @@ public class Hull {
     private int totalHullCost;
 
     public Hull(FwdHullSection forwardSection, MidHullSection midSection, AftHullSection aftSection, SuperStructure bridge) {
-        this.IDNumber = IDNumber;
+        idValue++;
+        IDNumber = "Hull - " + String.format("%03d",idValue);
         this.forwardSection = forwardSection;
         this.midSection = midSection;
         this.aftSection = aftSection;
@@ -20,6 +22,9 @@ public class Hull {
     }
 
     public void displayHullSpecs() {
+        forwardSection.getCostToBuild();
+        midSection.getCostToBuild();
+        aftSection.getCostToBuild();
     }
 
     //returns the total cost of building all the parts of the hull.

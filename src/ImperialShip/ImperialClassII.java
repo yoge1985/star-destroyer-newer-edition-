@@ -1,12 +1,21 @@
 package ImperialShip;
 
+import ShipArmament.Armament;
+import ShipHull.Hull;
+import ShipPropulsion.Propulsion;
+
 public class ImperialClassII extends StarDestroyer {
 
-    public ImperialClassII(){
+    private Armament armament;
+    private Hull hull;
+    private Propulsion propulsion;
+
+    public ImperialClassII(String shipName){
 
         shpClass = "Imperial II";
         shpCrew = 9100;
-        shpCost = 0; //125% and 175% of the cost of combined total of Hull,Propulsion and Armament
+        shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.75;
+        shpName = shipName;
 
     }
 
