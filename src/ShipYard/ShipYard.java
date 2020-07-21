@@ -18,7 +18,9 @@ public class ShipYard {
 
     public static void main(String[] args) {
 
-        ArrayList<Hull> hulls = buildHull(1);
+       ImperialClassI type1 = new ImperialClassI("jojo");
+       type1.displayShpInfo();
+
     }
 
     //

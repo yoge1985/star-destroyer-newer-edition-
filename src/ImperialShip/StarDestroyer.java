@@ -10,35 +10,49 @@ import Supporting.Location;
 
 public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipCombat {
 
-    protected String shpNum;
-    protected String shpType = "Star destroyer";
-    protected String shpName;
-    protected String shpClass;
-    protected int shpCrew;
-    protected double shpCost;
-    protected Hull shpMainHull;
+    private String shpType = "Star destroyer";
+    private String shpName;
+    protected String IDNumber;
+    private String shpClass;
+    private int shpCrew;
+    private double shpCost;
+    private Hull hull;
     protected Propulsion shpPropulsion;
     protected Armament shpArmament;
     protected Location shpLocation;
     protected int xLocation = Location.getX();
     protected int yLocation = Location.getY();
     protected int zLocation = Location.getZ();
-    protected int moveRate;
+    private int moveRate;
 
+    public StarDestroyer(String shpType, String shpName, String shpClass, int shpCrew, double shpCost, int xLocation, int yLocation, int zLocation, int moveRate) {
+        this.shpType = shpType;
+        this.shpName = shpName;
+        this.shpClass = shpClass;
+        this.shpCrew = shpCrew;
+        this.shpCost = hull.getTotalHullCost() + shpArmament.getTotalCost() + shpPropulsion.getTotalCost();
+        this.xLocation = xLocation;
+        this.yLocation = yLocation;
+        this.zLocation = zLocation;
+        this.moveRate = moveRate;
+    }
 
     public void displayShpInfo(){
 
+        System.out.println(IDNumber);
+        System.out.println("Class: " + shpClass);
+        System.out.println("Current location: " + "[" + xLocation + ":" + yLocation + ":" + zLocation + "]");
     }
 
     public void navigatesToPosition(String position){
 
-        System.out.println(shpNum  + " is a " + shpClass + " star destroyer and is currently enroute to " + position);
+        System.out.println(shpName  + " is a " + shpClass + " star destroyer and is currently enroute to " + position);
 
     }
 
     public void orbitsPlanet(String planet){
 
-        System.out.println(shpNum + " is a " + shpClass + " star destroyer and is currently orbiting " + planet);
+        System.out.println(shpName + " is a " + shpClass + " star destroyer and is currently orbiting " + planet);
 
     }
 

@@ -6,6 +6,7 @@ import ShipPropulsion.Propulsion;
 
 public class ImperialClassI extends StarDestroyer {
 
+    private int value = 0;
     private Armament armament;
     private Hull hull;
     private Propulsion propulsion;
@@ -13,32 +14,14 @@ public class ImperialClassI extends StarDestroyer {
     private int moveRate = 1;
 
 
-    public ImperialClassI(String shipName){
-
-        shpName = "ImperialClassI";
-        shpCrew = 7200;
-        shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.25;
-        shpName = shipName;
+    public ImperialClassI( String shpType, String shpName, String shpClass, int shpCrew, double shpCost, int xLocation, int yLocation, int zLocation, int moveRate, Armament armament, Hull hull, Propulsion propulsion, int moveRate1) {
+        super(shpType,shpName, shpClass, 7200, shpCost * 1.25, xLocation, yLocation, zLocation, moveRate);
+        IDNumber = shpName + " " + String.format("%03d",value++);
     }
 
-    //prints to console - moving forward. increments x by 1 (move_rate).
 
     @Override
-    public void moveForward() {
-        super.moveForward();
-    }
-
-    //prints to console - turning to starboard. increments x by 1/2
-
-    @Override
-    public void turnToStarBoard() {
-        super.turnToStarBoard();
-    }
-
-    //prints to console - turning to port. increments x by 1/2
-
-    @Override
-    public void turnToPort() {
-        super.turnToPort();
+    public void displayShpInfo() {
+        System.out.println(IDNumber);
     }
 }

@@ -18,7 +18,7 @@ public class Hull {
         this.aftSection = aftSection;
         this.bridge = bridge;
         this.totalHullCost = forwardSection.getCostToBuild() + midSection.getCostToBuild()
-                                + aftSection.getCostToBuild();
+                                + aftSection.getCostToBuild() + bridge.getCostToBuild();
     }
 
     public void displayHullSpecs() {

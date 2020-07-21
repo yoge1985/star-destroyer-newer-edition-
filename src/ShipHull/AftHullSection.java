@@ -2,12 +2,11 @@ package ShipHull;
 
 public class AftHullSection extends HullSection {
 
+    private static int value = 0;
+
     public AftHullSection() {
-        super(2800,"Aft",500,130,570,1900,false);
-        IDNumber++;
+        super("Aft",2800,500,130,570,1900,false);
+        IDNumber = String.format("%03d",value++);
     }
 
-    public int getCostToBuild(){
-        return costToBuild;
-    }
 }
