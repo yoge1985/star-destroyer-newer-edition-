@@ -1,43 +1,38 @@
 package ShipYard;
 
 import ImperialShip.ImperialClassI;
-import ImperialShip.ImperialClassII;
-import ImperialShip.StarDestroyer;
 import ShipArmament.Armament;
-import ShipArmament.HeavyIonCannon;
-import ShipArmament.TurboLaserCannon;
-import ShipHull.*;
-import ShipPropulsion.HyperDrive;
-import ShipPropulsion.IonEngine;
+import ShipHull.Hull;
 import ShipPropulsion.Propulsion;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class ShipYard {
 
     public static void main(String[] args) {
 
-       ImperialClassI type1 = new ImperialClassI("jojo");
-       type1.displayShpInfo();
+       ImperialClassI imperialClassI = new ImperialClassI("jo",3,2,1);
+       imperialClassI.displayShpInfo();
+       ImperialClassI another = new ImperialClassI("bob",4,3,2);
+       another.displayShpInfo();
 
     }
 
     //
-    public static ArrayList<StarDestroyer> buildStarDestroyers(int imperial1Count, int imperial2Count, TreeMap registry){
-
-        ArrayList<StarDestroyer> starDestroyers = new ArrayList<>();
-        for (int i = 0; i < imperial1Count; i++){
-            ImperialClassI type1 = new ImperialClassI("bobby");
-            starDestroyers.add(type1);
-        }
-        for (int i = 0; i < imperial2Count; i++){
-            ImperialClassII type2 = new ImperialClassII("tommy");
-            starDestroyers.add(type2);
-        }
-        return starDestroyers;
-
-    }
+//    public static ArrayList<StarDestroyer> buildStarDestroyers(int imperial1Count, int imperial2Count, TreeMap registry){
+//
+//        ArrayList<StarDestroyer> starDestroyers = new ArrayList<>();
+//        for (int i = 0; i < imperial1Count; i++){
+//            ImperialClassI type1 = new ImperialClassI("bobby");
+//            starDestroyers.add(type1);
+//        }
+//        for (int i = 0; i < imperial2Count; i++){
+//            ImperialClassII type2 = new ImperialClassII("tommy");
+//            starDestroyers.add(type2);
+//        }
+//        return starDestroyers;
+//
+//    }
 
     //builds a hull object by assembling all components of the Hull object and returns specified number of Hull objects
     public static ArrayList<Hull> buildHull(int hullCount){
@@ -45,7 +40,7 @@ public class ShipYard {
         ArrayList<Hull> hullObjects = new ArrayList<>();
         for (int i = 0; i < hullCount; i++){
 
-            Hull hull = new Hull(new FwdHullSection(),new MidHullSection(), new AftHullSection(), new SuperStructure());
+            Hull hull = new Hull();
             hullObjects.add(hull);
 
         }
@@ -57,7 +52,7 @@ public class ShipYard {
         ArrayList<Propulsion> propulsionObjects = new ArrayList<>();
 
         for (int i = 0; i < propulsionCount; i++){
-            Propulsion propulsion = new Propulsion(new IonEngine(),new IonEngine(),new HyperDrive());
+            Propulsion propulsion = new Propulsion();
             propulsionObjects.add(propulsion);
         }
         return propulsionObjects;
@@ -68,7 +63,7 @@ public class ShipYard {
         ArrayList<Armament> armamentObjects = new ArrayList<>();
 
         for (int i = 0; i < armamentCount; i++){
-            Armament armament = new Armament(new TurboLaserCannon[20],new HeavyIonCannon[40]);
+            Armament armament = new Armament();
             armamentObjects.add(armament);
         }
         return armamentObjects;

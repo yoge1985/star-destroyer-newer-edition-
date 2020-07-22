@@ -8,12 +8,12 @@ public class Propulsion {
     private HyperDrive LSEngine;
     private int totalCost;
 
-    public Propulsion(IonEngine portEngine, IonEngine starBoardEngine, HyperDrive LSEngine) {
+    public Propulsion() {
         this.IDNumber = IDNumber;
-        this.portEngine = portEngine;
-        this.starBoardEngine = starBoardEngine;
-        this.LSEngine = LSEngine;
-        this.totalCost = LSEngine.getCostToBuild() + starBoardEngine.getCostToBuild();
+        this.portEngine = new IonEngine();
+        this.starBoardEngine = new IonEngine();
+        this.LSEngine = new HyperDrive();
+        this.totalCost = LSEngine.getCostToBuild() + portEngine.getCostToBuild()+ starBoardEngine.getCostToBuild();
     }
 
     public void displayPropulsion(){
@@ -31,5 +31,9 @@ public class Propulsion {
 
     public int getTotalCost(){
         return this.totalCost;
+    }
+
+    public void displayPropulsionSpecs(){
+
     }
 }

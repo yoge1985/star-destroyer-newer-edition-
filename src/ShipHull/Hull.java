@@ -10,13 +10,13 @@ public class Hull {
     private SuperStructure bridge;
     private int totalHullCost;
 
-    public Hull(FwdHullSection forwardSection, MidHullSection midSection, AftHullSection aftSection, SuperStructure bridge) {
+    public Hull() {
         idValue++;
         IDNumber = "Hull - " + String.format("%03d",idValue);
-        this.forwardSection = forwardSection;
-        this.midSection = midSection;
-        this.aftSection = aftSection;
-        this.bridge = bridge;
+        this.forwardSection = new FwdHullSection();
+        this.midSection = new MidHullSection();
+        this.aftSection = new AftHullSection();
+        this.bridge = new SuperStructure();
         this.totalHullCost = forwardSection.getCostToBuild() + midSection.getCostToBuild()
                                 + aftSection.getCostToBuild() + bridge.getCostToBuild();
     }

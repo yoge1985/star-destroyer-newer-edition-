@@ -6,22 +6,33 @@ import ShipPropulsion.Propulsion;
 
 public class ImperialClassI extends StarDestroyer {
 
-    private int value = 0;
-    private Armament armament;
-    private Hull hull;
-    private Propulsion propulsion;
+    private int value;
+    private  Armament armament;
+    private  Hull hull;
+    private  Propulsion propulsion;
+    private double shpCost;
 
     private int moveRate = 1;
 
 
-    public ImperialClassI( String shpType, String shpName, String shpClass, int shpCrew, double shpCost, int xLocation, int yLocation, int zLocation, int moveRate, Armament armament, Hull hull, Propulsion propulsion, int moveRate1) {
-        super(shpType,shpName, shpClass, 7200, shpCost * 1.25, xLocation, yLocation, zLocation, moveRate);
-        IDNumber = shpName + " " + String.format("%03d",value++);
+    public ImperialClassI(String shipName,int xLoc,int yLoc,int zLoc){
+        super("imperialI", shipName,700,xLoc,yLoc,zLoc);
+        value++;
+        IDNumber = shipName + " " + String.format("%03d",value);
+        this.armament = new Armament();
+        this.hull = new Hull();
+        this.propulsion = new Propulsion();
+        shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.25;
     }
 
 
     @Override
     public void displayShpInfo() {
         System.out.println(IDNumber);
+        System.out.println("Class: "  shpT);
     }
+
+//    public static double shpCost(){
+//       return armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.25;
+//    }
 }

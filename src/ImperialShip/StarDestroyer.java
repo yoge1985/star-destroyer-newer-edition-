@@ -25,20 +25,19 @@ public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipComba
     protected int zLocation = Location.getZ();
     private int moveRate;
 
-    public StarDestroyer(String shpType, String shpName, String shpClass, int shpCrew, double shpCost, int xLocation, int yLocation, int zLocation, int moveRate) {
+    public StarDestroyer(String shpType,String shpName, int shpCrew,int xLocation, int yLocation,int zLocation) {
         this.shpType = shpType;
         this.shpName = shpName;
-        this.shpClass = shpClass;
         this.shpCrew = shpCrew;
-        this.shpCost = hull.getTotalHullCost() + shpArmament.getTotalCost() + shpPropulsion.getTotalCost();
         this.xLocation = xLocation;
         this.yLocation = yLocation;
         this.zLocation = zLocation;
-        this.moveRate = moveRate;
+        this.moveRate = moveRate;{
+
+        }
     }
 
     public void displayShpInfo(){
-
         System.out.println(IDNumber);
         System.out.println("Class: " + shpClass);
         System.out.println("Current location: " + "[" + xLocation + ":" + yLocation + ":" + zLocation + "]");
