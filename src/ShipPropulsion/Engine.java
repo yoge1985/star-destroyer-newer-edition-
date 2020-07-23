@@ -1,15 +1,25 @@
 package ShipPropulsion;
 
 public abstract class Engine {
-
-    protected String IDNumber;
+    private String IDNumber;
     protected String engineType;
-    protected int costToBuild;
-    protected int maxThrust;
-    protected int weight;
-    protected int fuelCapacity;
-    protected boolean installed;
+    private int costToBuild;
+    private int maxThrust;
+    private int weight;
+    private int fuelCapacity;
+    private boolean installed;
+    private  int value;
 
+    public Engine(String engineType,String IDNumber, int costToBuild, int maxThrust, int weight, int fuelCapacity, boolean installed) {
+        this.value++;
+        this.engineType = engineType;
+        this.IDNumber = IDNumber;
+        this.costToBuild = costToBuild;
+        this.maxThrust = maxThrust;
+        this.weight = weight;
+        this.fuelCapacity = fuelCapacity;
+        this.installed = installed;
+    }
 
     public void displayEngineInfo(){
 
@@ -17,5 +27,24 @@ public abstract class Engine {
 
     public int getCostToBuild(){
         return costToBuild;
+    }
+
+    public int getMaxThrust() {
+        return maxThrust;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+    public String getIDNumber(){
+        return IDNumber;
+    }
+
+    public String getEngineType() {
+        return engineType;
     }
 }

@@ -7,26 +7,35 @@ public class Propulsion {
     private IonEngine starBoardEngine;
     private HyperDrive LSEngine;
     private int totalCost;
+    private int value;
 
     public Propulsion() {
-        this.IDNumber = IDNumber;
+        value++;
+        this.IDNumber = "Prop-" + String.format("%03d",value);
         this.portEngine = new IonEngine();
         this.starBoardEngine = new IonEngine();
         this.LSEngine = new HyperDrive();
         this.totalCost = LSEngine.getCostToBuild() + portEngine.getCostToBuild()+ starBoardEngine.getCostToBuild();
     }
 
-    public void displayPropulsion(){
+    public void displayPropulsionSpec(){
 
-        System.out.println("Propulsion ID: " + IDNumber + "\nPort Engine"
-                + "\nEngine: " + portEngine.engineType
-                + portEngine.fuelCapacity + portEngine.maxThrust
-                + "\nStarboard engine"
-                + "\nEngine ID: " + starBoardEngine.IDNumber + "Engine: Ion" + "\nFuel capacity: "
-                + starBoardEngine.fuelCapacity + "\nMaximum thrust: " + starBoardEngine.maxThrust
-                + "\nHyperdrive\nEngine ID: " + LSEngine.IDNumber
-                + "\nEngine: Hyperdrive\n Fuel capacity: " + LSEngine.fuelCapacity
-                + "\nMaximum thrust: " + LSEngine.maxThrust);
+        System.out.println("\n\nPropulsion ID:" + this.IDNumber);
+        System.out.println("Port engine");
+        System.out.println("Engine ID:" + portEngine.getIDNumber());
+        System.out.println("Engine: " + portEngine.getEngineType());
+        System.out.println("Fuel capacity: " + portEngine.getFuelCapacity());
+        System.out.println("Maximum thrust: " + portEngine.getMaxThrust());
+        System.out.println("\n\nStarboard Engine");
+        System.out.println("Engine ID: " + starBoardEngine.getIDNumber());
+        System.out.println("Engine: " + starBoardEngine.getEngineType());
+        System.out.println("Fuel capacity: " + starBoardEngine.getFuelCapacity());
+        System.out.println("Maximum thrust: " + starBoardEngine.getMaxThrust());
+        System.out.println("\n\nHyperdrive");
+        System.out.println("Engine ID: " + LSEngine.getIDNumber());
+        System.out.println("Engine: " + LSEngine.getEngineType());
+        System.out.println("Fuel capacity: " + LSEngine.getFuelCapacity());
+        System.out.println("Maximum thrust: " + LSEngine.getMaxThrust());
     }
 
     public int getTotalCost(){

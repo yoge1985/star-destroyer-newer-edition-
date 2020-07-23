@@ -1,6 +1,6 @@
 package ShipYard;
 
-import ImperialShip.ImperialClassI;
+import ImperialShip.ImperialClassII;
 import ShipArmament.Armament;
 import ShipHull.Hull;
 import ShipPropulsion.Propulsion;
@@ -11,10 +11,16 @@ public class ShipYard {
 
     public static void main(String[] args) {
 
-       ImperialClassI imperialClassI = new ImperialClassI("jo",3,2,1);
-       imperialClassI.displayShpInfo();
-       ImperialClassI another = new ImperialClassI("bob",4,3,2);
+//       ImperialClassI imperialClassI = new ImperialClassI("jo",3,2,1);
+//       imperialClassI.displayShpInfo();
+       ImperialClassII another = new ImperialClassII("bob",4,3,2);
+       ImperialClassII oneMore = new ImperialClassII("yoel",6,4,6);
        another.displayShpInfo();
+       another.displayPropulsion();
+//       oneMore.displayShpInfo();
+//       oneMore.displayPropulsion();
+
+
 
     }
 

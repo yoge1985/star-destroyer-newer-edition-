@@ -13,15 +13,19 @@ public class ImperialClassII extends StarDestroyer {
 
     public ImperialClassII(String shpName, int xLoc , int yLoc, int zLoc) {
         super("ImperialII", shpName, 9100, xLoc, yLoc, zLoc);
-        this.armament = armament;
-        this.shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.75;
         this.armament = new Armament();
         this.propulsion = new Propulsion();
         this.hull = new Hull();
+        this.shpCost = armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.75;
     }
 
 //    private static double shpCost(){
 //        return armament.getTotalCost() + hull.getTotalHullCost() + propulsion.getTotalCost() * 1.75;
+//    }
+
+//    @Override
+//    public void displayShpInfo() {
+//        super.displayShpInfo();
 //    }
 }
 

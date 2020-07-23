@@ -2,12 +2,10 @@ package ShipPropulsion;
 
 public class HyperDrive extends Engine {
 
+    private static String engineType = "Hyper";
+    private static int value;
+
     public HyperDrive() {
-        engineType = "Hyperdrive";
-        costToBuild = 175;
-        maxThrust = 19000;
-        weight = 200;
-        fuelCapacity = 975;
-        installed = false;
+        super(engineType,engineType +"-"+String.format("%03d",value++), 1900, 19000, 500, 975, false);
     }
 }

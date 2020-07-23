@@ -17,29 +17,33 @@ public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipComba
     private int shpCrew;
     private double shpCost;
     private Hull hull;
-    protected Propulsion shpPropulsion;
-    protected Armament shpArmament;
+    protected Propulsion propulsion;
+    protected Armament armament;
     protected Location shpLocation;
     protected int xLocation = Location.getX();
     protected int yLocation = Location.getY();
     protected int zLocation = Location.getZ();
     private int moveRate;
+    private static int value;
 
     public StarDestroyer(String shpType,String shpName, int shpCrew,int xLocation, int yLocation,int zLocation) {
+        this.armament = new Armament();
+        this.propulsion = new Propulsion();
+        this.hull = new Hull();
         this.shpType = shpType;
         this.shpName = shpName;
         this.shpCrew = shpCrew;
         this.xLocation = xLocation;
         this.yLocation = yLocation;
         this.zLocation = zLocation;
-        this.moveRate = moveRate;{
-
-        }
+        this.moveRate = moveRate;
+        value++;
+        this.IDNumber = shpName + "-" + String.format("%03d",value);
     }
 
     public void displayShpInfo(){
         System.out.println(IDNumber);
-        System.out.println("Class: " + shpClass);
+        System.out.println("Class: " + shpType);
         System.out.println("Current location: " + "[" + xLocation + ":" + yLocation + ":" + zLocation + "]");
     }
 
@@ -59,7 +63,7 @@ public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipComba
     public void moveForward() {
         System.out.println(shpName + " is moving forward ");
         xLocation += moveRate;
-        System.out.println(xLocation);
+        System.out.println("Current X location is " + xLocation);
     }
 
     @Override
@@ -76,7 +80,6 @@ public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipComba
     public void turnToStarBoard() {
         System.out.println(shpName + " is turning to starboard");
         xLocation += (moveRate / 2);
-
     }
 
     @Override
@@ -84,6 +87,10 @@ public abstract class StarDestroyer implements Maneuver, ShipMovement, ShipComba
         System.out.println(shpName + " is turning to port");
         xLocation += (moveRate / 2);
 
+    }
+
+    public void displayPropulsion(){
+        propulsion.displayPropulsionSpec();
     }
 
 
