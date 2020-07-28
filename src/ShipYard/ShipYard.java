@@ -1,5 +1,6 @@
 package ShipYard;
 
+import ImperialShip.ImperialClassI;
 import ImperialShip.StarDestroyer;
 import ShipArmament.Armament;
 import ShipHull.Hull;
@@ -7,6 +8,8 @@ import ShipPropulsion.Propulsion;
 import Supporting.Location;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.TreeMap;
 
  enum IType{
@@ -36,7 +39,16 @@ public class ShipYard {
         treeMap.put("ISS-11 Ransacker",new Type(IType.TYPE_2,new Location(40,45,20)));
         treeMap.put("ISS-90 Wrecker",new Type(IType.TYPE_2,new Location(30,50,22)));
         treeMap.put("ISS-98 Sacker",new Type(IType.TYPE_2,new Location(20,55,24)));
-        treeMap.put("ISS-200 Obliterator",new Type(IType.TYPE_1,new Location(10,60,26)));
+        treeMap.put("ISS-200 Obliterator",new Type(IType.TYPE_2,new Location(10,60,26)));
+
+        Iterator<Map.Entry<String,Type>> itr = treeMap.entrySet().iterator();
+        StarDestroyer sd = null;
+        while (itr.hasNext()){
+            Map.Entry<String,Type> entry = itr.next();
+            if (entry.getValue().equals(IType.TYPE_1)){
+                sd = new ImperialClassI(entry.getKey(),);
+            }
+        }
 
 
 
